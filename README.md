@@ -1,5 +1,5 @@
-heyhey! this is being made for Suncatcher.hackclub.com!
+heyhey! this is being made for Suncatcher.hackclub.com! <br/>
 <img width="590" height="410" alt="logonobg" src="https://github.com/user-attachments/assets/8e21ac8f-1347-4584-b6b2-43318b920023" />
 ### chromatology: a study in grey
-If you know Arthur Conan Doyle's extraordinarily famous detective series, you'll know that this game plays on the author's *Study in Scarlet* story. Though this game is more inspired by the BBC's televised version, you should check out the book nonetheless!
+If you know Arthur Conan Doyle's extraordinarily famous detective series, you'll know that this game plays on the author's *Study in Scarlet* story. Though this game is more inspired by the BBC's televised version, you should check out the book nonetheless! <br/>
 <img width="512" height="512" alt="IMG_0569" src="https://github.com/user-attachments/assets/c30227b6-75d2-4c8c-8732-f60d1aa4c016" />
