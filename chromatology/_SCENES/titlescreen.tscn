@@ -1,9 +1,12 @@
-[gd_scene load_steps=9 format=4 uid="uid://7gi66i1t0pu8"]
+[gd_scene load_steps=16 format=4 uid="uid://7gi66i1t0pu8"]
 
 [ext_resource type="Texture2D" uid="uid://4w65vqniwakf" path="res://_FILES/logobg.png" id="1_fgwcw"]
+[ext_resource type="Script" uid="uid://bls78sb2inxs3" path="res://_SCRIPTS/titlescreen.gd" id="1_gimk5"]
 [ext_resource type="Texture2D" uid="uid://5xirxw2hr6cb" path="res://_FILES/attachments/IMG_0570.PNG" id="2_afate"]
+[ext_resource type="Texture2D" uid="uid://c6j7kkt52gr6r" path="res://_FILES/destnik.png" id="3_b1i22"]
 [ext_resource type="Texture2D" uid="uid://fd1t54yf6d34" path="res://_FILES/attachments/IMG_0571.PNG" id="3_gimk5"]
 [ext_resource type="FontFile" uid="uid://dcroll4x0ftl3" path="res://_FILES/skribbler.ttf" id="4_b1i22"]
+[ext_resource type="Texture2D" uid="uid://bvf8q8glv6jxq" path="res://_FILES/bubble2.png" id="7_b1i22"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_pnskm"]
 animations = [{
@@ -20,6 +23,15 @@ animations = [{
 }]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_owe6s"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_m5gpp"]
+texture = ExtResource("7_b1i22")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_b1i22"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_psuhw"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_m5gpp"]
 
 [sub_resource type="Image" id="Image_m5gpp"]
 data = {
@@ -226,6 +238,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_gimk5")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 1
@@ -241,12 +254,29 @@ position = Vector2(578, 187)
 scale = Vector2(0.33749, 0.33749)
 texture = ExtResource("1_fgwcw")
 
+[node name="coverup" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 513.0
+offset_top = 299.0
+offset_right = -509.0
+offset_bottom = -224.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.050980393, 0.05490196, 0.05490196, 1)
+
+[node name="Destnik" type="Sprite2D" parent="."]
+position = Vector2(593, 207)
+scale = Vector2(0.32595575, 0.32595575)
+texture = ExtResource("3_b1i22")
+
 [node name="doodleboi" type="AnimatedSprite2D" parent="."]
 visible = false
 position = Vector2(1027, 399)
 scale = Vector2(0.24, 0.24)
 sprite_frames = SubResource("SpriteFrames_pnskm")
-frame_progress = 0.9959205
 
 [node name="start" type="Button" parent="."]
 layout_mode = 1
@@ -255,15 +285,29 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -80.0
-offset_top = 173.0
-offset_right = 80.0
-offset_bottom = 209.0
+offset_left = -67.0
+offset_top = 184.0
+offset_right = 93.0
+offset_bottom = 220.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_colors/font_color = Color(0.7445592, 0.79292196, 0.79753083, 1)
+theme_override_colors/font_focus_color = Color(0.7445592, 0.79292196, 0.79753083, 1)
+theme_override_colors/font_pressed_color = Color(0.7445592, 0.79292196, 0.79753083, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.7445592, 0.79292196, 0.79753083, 1)
+theme_override_colors/font_disabled_color = Color(0.7445592, 0.79292196, 0.79753083, 1)
+theme_override_colors/font_outline_color = Color(0.7445592, 0.79292196, 0.79753083, 1)
 theme_override_fonts/font = ExtResource("4_b1i22")
 theme_override_font_sizes/font_size = 37
 theme_override_styles/normal = SubResource("StyleBoxEmpty_owe6s")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_owe6s")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_owe6s")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_owe6s")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_owe6s")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_owe6s")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_owe6s")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_owe6s")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_owe6s")
 text = "ready now?"
 
 [node name="settings" type="Button" parent="."]
@@ -273,16 +317,26 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -142.0
-offset_top = -39.0
-offset_right = -6.0
-offset_bottom = -11.0
+offset_left = -148.0
+offset_top = -27.0
+offset_right = -63.0
+offset_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(0.7445592, 0.79292196, 0.79753083, 1)
+theme_override_colors/font_focus_color = Color(0.7445592, 0.79292196, 0.79753083, 1)
+theme_override_colors/font_pressed_color = Color(0.7445592, 0.79292196, 0.79753083, 1)
+theme_override_colors/font_hover_color = Color(0.95, 0.95, 0.95, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.7445592, 0.79292196, 0.79753083, 1)
+theme_override_colors/font_disabled_color = Color(0.7445592, 0.79292196, 0.79753083, 1)
+theme_override_colors/font_outline_color = Color(0.7445592, 0.79292196, 0.79753083, 1)
 theme_override_fonts/font = ExtResource("4_b1i22")
 theme_override_font_sizes/font_size = 29
 theme_override_styles/normal = SubResource("StyleBoxEmpty_owe6s")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_m5gpp")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_b1i22")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_psuhw")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_m5gpp")
 text = "settings"
 
 [node name="about" type="Button" parent="."]
@@ -292,16 +346,26 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 6.0
-offset_top = -39.0
-offset_right = 142.0
-offset_bottom = -11.0
+offset_left = 89.0
+offset_top = -27.0
+offset_right = 155.0
+offset_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(0.7445592, 0.79292196, 0.79753083, 1)
+theme_override_colors/font_focus_color = Color(0.7445592, 0.79292196, 0.79753083, 1)
+theme_override_colors/font_pressed_color = Color(0.7445592, 0.79292196, 0.79753083, 1)
+theme_override_colors/font_hover_color = Color(0.95, 0.95, 0.95, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.7445592, 0.79292196, 0.79753083, 1)
+theme_override_colors/font_disabled_color = Color(0.7445592, 0.79292196, 0.79753083, 1)
+theme_override_colors/font_outline_color = Color(0.7445592, 0.79292196, 0.79753083, 1)
 theme_override_fonts/font = ExtResource("4_b1i22")
 theme_override_font_sizes/font_size = 29
 theme_override_styles/normal = SubResource("StyleBoxEmpty_owe6s")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_m5gpp")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_b1i22")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_psuhw")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_m5gpp")
 text = "about"
 
 [node name="quit" type="Button" parent="."]
@@ -318,9 +382,21 @@ offset_bottom = 316.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(0.7445592, 0.79292196, 0.79753083, 1)
+theme_override_colors/font_focus_color = Color(0.7445592, 0.79292196, 0.79753083, 1)
+theme_override_colors/font_pressed_color = Color(0.7445592, 0.79292196, 0.79753083, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.7445592, 0.79292196, 0.79753083, 1)
+theme_override_colors/font_disabled_color = Color(0.7445592, 0.79292196, 0.79753083, 1)
+theme_override_colors/font_outline_color = Color(0.7445592, 0.79292196, 0.79753083, 1)
+theme_override_colors/icon_normal_color = Color(0.7445592, 0.79292196, 0.79753083, 1)
 theme_override_fonts/font = ExtResource("4_b1i22")
 theme_override_font_sizes/font_size = 29
 theme_override_styles/normal = SubResource("StyleBoxEmpty_owe6s")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_owe6s")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_owe6s")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_owe6s")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_owe6s")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_owe6s")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_owe6s")
 text = "escape? (Q)"
 
 [node name="stuf" type="Label" parent="."]
@@ -339,3 +415,5 @@ theme_override_font_sizes/font_size = 21
 text = "made with doodles by onlyth3best..."
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[connection signal="pressed" from="quit" to="." method="_on_quit_pressed"]

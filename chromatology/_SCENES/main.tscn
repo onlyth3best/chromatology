@@ -1,0 +1,56 @@
+[gd_scene load_steps=9 format=3 uid="uid://clnrhr81d78nj"]
+
+[ext_resource type="Script" uid="uid://caakemnyichhs" path="res://_SCRIPTS/character_body_3d.gd" id="1_kadlf"]
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_f5gb3"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_6ciat"]
+size = Vector2(20, 20)
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_373gt"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_5amtw"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_kadlf"]
+sky_top_color = Color(0.529407, 0.6377945, 0.6225405, 1)
+sky_horizon_color = Color(0.6177879, 0.6656367, 0.6712852, 1)
+
+[sub_resource type="Sky" id="Sky_f5gb3"]
+sky_material = SubResource("ProceduralSkyMaterial_kadlf")
+
+[sub_resource type="Environment" id="Environment_6ciat"]
+background_mode = 2
+sky = SubResource("Sky_f5gb3")
+
+[node name="main" type="Node3D"]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("WorldBoundaryShape3D_f5gb3")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
+mesh = SubResource("PlaneMesh_6ciat")
+
+[node name="CharacterBody3D" type="CharacterBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6822758, 0)
+script = ExtResource("1_kadlf")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D"]
+shape = SubResource("CapsuleShape3D_373gt")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="CharacterBody3D"]
+mesh = SubResource("CapsuleMesh_5amtw")
+
+[node name="SpringArm3D" type="SpringArm3D" parent="CharacterBody3D"]
+
+[node name="Camera3D" type="Camera3D" parent="CharacterBody3D/SpringArm3D"]
+transform = Transform3D(1, 0, 0, 0, 0.9600938, 0.2796782, 0, -0.2796782, 0.9600938, 0, 1.8062336, 2.2164166)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.65640146, -0.7544118, 0, 0.7544118, 0.65640146, 0, 7.0732255, -5.3916016)
+light_color = Color(0.8462914, 0.8278005, 0.6710908, 1)
+sky_mode = 1
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_6ciat")
